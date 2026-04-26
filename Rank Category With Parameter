@@ -1,0 +1,17 @@
+Category Rank = 
+VAR SelectedMeasure = SELECTEDVALUE('KPI'[KPI Order])
+RETURN
+RANKX(
+    ALL(Sales_Data[Category]),
+    SWITCH(
+        SelectedMeasure,
+        0, [Total Sales],
+        1, [Total Quantity],
+        2, [Total Profit],
+        3, [Total Cost],
+        BLANK()
+    ),
+    ,
+    DESC,
+    Dense
+)

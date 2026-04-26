@@ -1,0 +1,11 @@
+Dynamic Title = 
+VAR TopNum = SELECTEDVALUE('Top N'[Top N], 5)
+RETURN
+    SWITCH(
+        SELECTEDVALUE('KPI'[KPI Order]),
+        0, "Currently Viewing Top " & TopNum & " Categories by Total Sales",
+        1, "Currently Viewing Top " & TopNum & " Categories by Total Quantity",
+        2, "Currently Viewing Top " & TopNum & " Categories by Total Profit",
+        3, "Currently Viewing Top " & TopNum & " Categories by Total Cost",
+        "Select a KPI"
+    )

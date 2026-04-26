@@ -1,0 +1,10 @@
+KPI Top N (Formatted) = 
+VAR _value = [KPI Top N]
+RETURN
+SWITCH(
+    TRUE(),
+    ISBLANK(_value), BLANK(),
+    ABS(_value) >= 1000000, FORMAT(_value / 1000000, "0.0") & "M",
+    ABS(_value) >= 1000, FORMAT(_value / 1000, "0.0") & "K",
+    FORMAT(_value, "#,0")
+)
